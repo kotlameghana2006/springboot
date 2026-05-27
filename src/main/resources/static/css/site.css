@@ -36,3 +36,21 @@ h1 {
 
   padding: 2px 16px;
 }
+body{
+  margin: 0px;
+  padding: 0px;
+}
+.navbar{
+  border: 1px solid #000000;
+  background-color: #444;
+  padding: 10px;
+}
+.navbar a{
+  color: #fff;
+  text-decoration: :none;
+  padding: 10px;
+}
+.navbar a:hover{
+  background-color: #666;
+  padding: 10px;
+}
