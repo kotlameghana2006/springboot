@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random User</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="card.html">Card</a>
+        <a href="toggle.html">Toggle</a>
+        <a href="randomuser.html" class="active">Random User</a>
+        <a href="gitpulse.html">Gitpulse</a>
+        <a href="myrandomuser.html">MyRandomUser</a>
+    </nav>
+    
+    <div class="simple-card">
+        <img id="ru-pic" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile">
+        <div class="info">
+            <h3 id="ru-name">Ms Ingrid Sachse</h3>
+            <p id="ru-gender">female</p>
+        </div>
+        <button class="action-btn" onclick="nextRandomUser()">Next Random User</button>
+    </div>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

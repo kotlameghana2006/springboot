@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle View</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="card.html">Card</a>
+        <a href="toggle.html" class="active">Toggle</a>
+        <a href="randomuser.html">Random User</a>
+        <a href="gitpulse.html">Gitpulse</a>
+        <a href="myrandomuser.html">MyRandomUser</a>
+    </nav>
+    
+    <div class="simple-card">
+        <img id="toggle-pic" src="/images/jane.jpg" alt="Profile">
+        <div class="info">
+            <h3 id="toggle-name">Jane Doe</h3>
+            <p id="toggle-gender">Female</p>
+        </div>
+        <button class="action-btn" onclick="handleToggle()">Toggle</button>
+        
+    </div>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitPulse Portfolio</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="card.html">Card</a>
+        <a href="toggle.html">Toggle</a>
+        <a href="randomuser.html">Random User</a>
+        <a href="gitpulse.html" class="active">Gitpulse</a>
+        <a href="myrandomuser.html">MyRandomUser</a>
+    </nav>
+    
+    <div class="gitpulse-app">
+        <div class="logo">Git<span>Pulse</span></div>
+        <p class="tagline">GitHub Developer Portfolio Analyzer</p>
+        
+        <div class="search-bar">
+            <input type="text" id="gh-input" placeholder="Enter a GitHub username...">
+            <button onclick="searchGitHub()">Analyze</button>
+        </div>
+
+        <div class="notable-header">NOTABLE DEVELOPERS</div>
+        <div class="dev-grid">
+            <div class="dev-item">
+                <img src="https://github.com/torvalds.png" alt="Linus">
+                <h4>Linus Torvalds</h4>
+                <span class="username">@torvalds</span>
+            </div>
+            <div class="dev-item">
+                <img src="https://github.com/gaearon.png" alt="Dan">
+                <h4>dan</h4>
+                <span class="username">@gaearon</span>
+            </div>
+            <div class="dev-item">
+                <img src="https://github.com/sindresorhus.png" alt="Sindre">
+                <h4>Sindre Sorhus</h4>
+                <span class="username">@sindresorhus</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/site.js"></script>
+</body>
+</html>
