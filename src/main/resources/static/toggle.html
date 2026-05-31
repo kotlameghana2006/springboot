@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Toggle View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="css/site.css">
+
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="card.html">Card</a>
-        <a href="toggle.html" class="active">Toggle</a>
-        <a href="randomuser.html">Random User</a>
-        <a href="gitpulse.html">Gitpulse</a>
-        <a href="myrandomuser.html">MyRandomUser</a>
+        <a href="/index.html">Home</a>
+        <a href="/card.html">Card</a>
+        <a href="/toggle.html">Toggle</a>
+        <a href="/randomuser.html">Random User</a>
+        <a href="/gitpulse.html">Gitpulse</a>
+        <a href="/myrandomuser.html" class="active">MyRandomUser</a>
     </nav>
-    
-    <div class="simple-card">
-        <img id="toggle-pic" src="/images/jane.jpg" alt="Profile">
-        <div class="info">
-            <h3 id="toggle-name">Jane Doe</h3>
-            <p id="toggle-gender">Female</p>
+    <h2>Card</h2>
+    <div class="card">
+        <img id="userImage" src="images/john.png" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4 id="userName"><b>John Doe</b></h4> 
+            <p id="userGender">Male</p> 
         </div>
-        <button class="action-btn" onclick="handleToggle()">Toggle</button>
-        
     </div>
-
+    <button onclick="toggleCard()">Toggle</button>
     <script src="js/site.js"></script>
 </body>
 </html>

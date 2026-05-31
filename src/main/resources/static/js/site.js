@@ -1,71 +1,86 @@
 // ==========================================
 // 1. TOGGLE PAGE ENGINE (John <-> Jane)
 // ==========================================
-let currentToggleProfile = 'jane';
+console.log("Hello from JS");
 
-function handleToggle() {
-    const imgElement = document.getElementById('toggle-pic');
-    const nameElement = document.getElementById('toggle-name');
-    const genderElement = document.getElementById('toggle-gender');
+var users = [
+    {"name" : "John", "gender" : "Male", "img" : "images/john.png"},
+    {"name" : "Jane", "gender" : "Female", "img" : "images/jane.jpg"}
+];
 
-    if (currentToggleProfile === 'jane') {
-        imgElement.src = '/images/john.png';
-        nameElement.innerText = 'John Doe';
-        genderElement.innerText = 'Male';
-        currentToggleProfile = 'john';
-    } else {
-        imgElement.src = '/images/jane.jpg';
-        nameElement.innerText = 'Jane Doe';
-        genderElement.innerText = 'Female';
-        currentToggleProfile = 'jane';
+var currentUserIndex = 0;
+
+function toggleCard(){
+    currentUserIndex =(currentUserIndex + 1) % 2;
+    var user = users[currentUserIndex];
+
+    // DOM Manipulation
+    document.getElementById("userImage").src = user.img;
+    document.getElementById("userGender").innerHTML = user.gender;
+    document.getElementById("userName").innerHTML = user.name;
+}    
+
+
+// ==========================================
+// 2. RANDOM USER INTERACTIVE POOL (LIVE API)
+// ==========================================
+async function nextRandomUser() {
+    try {
+        // Fetch data directly from the live, infinite Random User Generator API
+        const response = await fetch('https://randomuser.me/api/');
+        const data = await response.json();
+        const user = data.results[0];
+
+        // Dynamically update the HTML elements with live data fields
+        document.getElementById('ru-pic').src = user.picture.large;
+        document.getElementById('ru-name').innerText = `${user.name.title} ${user.name.first} ${user.name.last}`;
+        document.getElementById('ru-gender').innerText = user.gender;
+
+    } catch (error) {
+        console.error("Error communicating with RandomUser service:", error);
     }
 }
 
 // ==========================================
-// 2. RANDOM USER INTERACTIVE LOCAL DATA POOL
+// 3. MYRANDOMUSER CONTROLLER (LIVE API)
 // ==========================================
-const userPool = [
-    { name: "Ms Ingrid Sachse", gender: "female", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-    { name: "John Doe", gender: "Male", img: "/images/john.png" },
-    { name: "Mr Alex Ferguson", gender: "male", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { name: "Jane Doe", gender: "Female", img: "/images/jane.jpg" }
-];
+async function nextMyRandomUser() {
+    try {
+        const response = await fetch('https://randomuser.me/api/');
+        const data = await response.json();
+        const user = data.results[0];
 
-let currentUserIndex = 0;
+        document.getElementById('mru-pic').src = user.picture.large;
+        document.getElementById('mru-name').innerText = `${user.name.title} ${user.name.first} ${user.name.last}`;
+        document.getElementById('mru-gender').innerText = user.gender;
 
-function nextRandomUser() {
-    // Loop through the data array smoothly
-    currentUserIndex = (currentUserIndex + 1) % userPool.length;
-    const nextUser = userPool[currentUserIndex];
-
-    // Find and update the view items instantly
-    document.getElementById('ru-pic').src = nextUser.img;
-    document.getElementById('ru-name').innerText = nextUser.name;
-    document.getElementById('ru-gender').innerText = nextUser.gender;
+    } catch (error) {
+        console.error("Error communicating with MyRandomUser service:", error);
+    }
 }
 
 // ==========================================
-// 3. MYRANDOMUSER CONTROLLER
+// 4. GITPULSE LOGIC (LIVE GITHUB DATA LOOKUP)
 // ==========================================
-let myUserIndex = 0;
-
-function nextMyRandomUser() {
-    myUserIndex = (myUserIndex + 1) % userPool.length;
-    const nextUser = userPool[myUserIndex];
-
-    document.getElementById('mru-pic').src = nextUser.img;
-    document.getElementById('mru-name').innerText = nextUser.name;
-    document.getElementById('mru-gender').innerText = nextUser.gender;
-}
-
-// ==========================================
-// 4. GITPULSE LOGIC
-// ==========================================
-function searchGitHub() {
+async function searchGitHub() {
     const value = document.getElementById('gh-input').value.trim();
     if (!value) {
         alert("Please enter a GitHub username!");
         return;
     }
-    alert("Analyzing developer portfolio statistics for: " + value);
+
+    try {
+        // Hits the official GitHub API to fetch real public user info
+        const response = await fetch(`https://api.github.com/users/${value}`);
+        if (!response.ok) {
+            alert("GitHub User not found!");
+            return;
+        }
+        const data = await response.json();
+        
+        alert(`Developer Account Found!\n\nName: ${data.name || data.login}\nPublic Repos: ${data.public_repos}\nFollowers: ${data.followers}`);
+        
+    } catch (error) {
+        console.error("Error fetching data from GitHub API:", error);
+    }
 }

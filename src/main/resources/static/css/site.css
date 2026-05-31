@@ -40,45 +40,32 @@ body {
 }
 
 /* CARD SYSTEM (Fixes giant images from your screenshot) */
+
+
 .simple-card {
-    border: 1px solid #000000;
-    width: 250px;       /* Forces the card component bounding box width */
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
+    width: 250px;
+    margin: 40px auto;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 10px;
 }
 
 .simple-card img {
-    width: 250px;      /* Strictly controls image width */
-    height: 250px;     /* Strictly controls image height */
-    object-fit: cover; /* Prevents stretching and distortion */
-    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 15px;
 }
 
-.simple-card .info {
-    padding: 12px 10px;
-}
-
-.simple-card h3 {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.simple-card p {
-    margin: 0;
-    font-size: 14px;
+.info {
+    padding: 10px;
 }
 
 .action-btn {
-    margin: 0 0 10px 10px;
-    align-self: flex-start;
-    padding: 4px 10px;
+    margin-bottom: 20px;
+    padding: 8px 20px;
     cursor: pointer;
-    background-color: #efefef;
-    border: 1px solid #767676;
-    border-radius: 3px;
 }
 
 /* GITPULSE CENTRAL UI LAYOUT */
